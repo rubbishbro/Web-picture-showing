@@ -1,0 +1,323 @@
+.upload-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+.upload-form {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.upload-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.upload-form-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* 图片上传区域 */
+.image-upload-area {
+  position: relative;
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.upload-placeholder {
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.upload-placeholder:hover {
+  border-color: #667eea;
+  background: #f8f9ff;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  color: #d1d5db;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.upload-placeholder:hover .upload-icon {
+  color: #667eea;
+}
+
+.upload-placeholder p {
+  margin: 0.5rem 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.upload-hint {
+  font-size: 0.85rem !important;
+  color: #999 !important;
+  margin-top: 0.5rem !important;
+}
+
+/* 图片预览 */
+.image-preview {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-image {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.remove-image:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+/* 错误消息 */
+.error-message {
+  background: #fee;
+  color: #c33;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #c33;
+  font-size: 0.9rem;
+}
+
+/* 表单操作按钮 */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f0f0f0;
+}
+
+.cancel-button,
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  min-width: 100px;
+}
+
+.cancel-button {
+  background: white;
+  border-color: #d1d5db;
+  color: #666;
+}
+
+.cancel-button:hover {
+  background: #f5f5f5;
+  border-color: #999;
+  color: #333;
+}
+
+.submit-button {
+  background: #667eea;
+  border-color: #667eea;
+  color: white;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #5a67d8;
+  border-color: #5a67d8;
+  transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .upload-form {
+    padding: 1.5rem;
+    margin: 1rem;
+    max-height: 95vh;
+  }
+
+  .upload-form-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .upload-form-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .cancel-button,
+  .submit-button {
+    width: 100%;
+  }
+
+  .upload-placeholder {
+    padding: 1.5rem;
+    min-height: 150px;
+  }
+
+  .upload-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-form {
+    padding: 1rem;
+  }
+
+  .upload-form-header {
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .upload-placeholder {
+    padding: 1rem;
+    min-height: 120px;
+  }
+
+  .upload-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .upload-placeholder p {
+    font-size: 0.9rem;
+  }
+
+  .upload-hint {
+    font-size: 0.8rem !important;
+  }
+}
